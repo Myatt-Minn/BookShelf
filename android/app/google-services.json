@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "469809918616",
+    "project_id": "nonglao-2e356",
+    "storage_bucket": "nonglao-2e356.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469809918616:android:ffafeecf90d5a03c8e96ed",
+        "android_client_info": {
+          "package_name": "tech4mm.com.x_book_shelf"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVvSpEY0sYrYxEdan-VaPCBmMXetkVzag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
