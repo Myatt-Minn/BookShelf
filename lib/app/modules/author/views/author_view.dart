@@ -14,7 +14,7 @@ class AuthorView extends GetView<AuthorController> {
         leading: const Icon(Icons.person),
         title: Text(
           'authors'.tr,
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,

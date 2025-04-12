@@ -12,7 +12,7 @@ class NotificationView extends GetView<NotificationController> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Notifications'.tr,
+          'notifications'.tr,
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,

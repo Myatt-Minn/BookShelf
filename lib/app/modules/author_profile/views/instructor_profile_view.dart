@@ -16,6 +16,19 @@ class AuthorProfileView extends GetView<AuthorProfileController> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            leading: GestureDetector(
+              onTap: () {
+                Get.back();
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.white,
+                ),
+
+                child: Icon(Icons.arrow_back),
+              ),
+            ),
             expandedHeight: 200,
             floating: false,
             pinned: true,
@@ -73,7 +86,7 @@ class AuthorProfileView extends GetView<AuthorProfileController> {
                   const SizedBox(height: 16),
                   Divider(),
                   Text(
-                    "books",
+                    "books".tr,
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 8),
@@ -145,16 +158,9 @@ class AuthorProfileView extends GetView<AuthorProfileController> {
                       ),
                       child: Row(
                         children: [
-                          const Icon(
-                            Icons.library_books_outlined,
-                            color: Colors.white,
-                            size: 16,
-                          ),
+                          const Icon(Icons.library_books_outlined, size: 16),
                           const SizedBox(width: 4),
-                          Text(
-                            '${book.page} pages',
-                            style: const TextStyle(color: Colors.white),
-                          ),
+                          Text('${book.page} ${'pages'.tr}'),
                         ],
                       ),
                     ),
@@ -190,11 +196,8 @@ class AuthorProfileView extends GetView<AuthorProfileController> {
               const SizedBox(height: 4),
               Row(
                 children: [
-                  const Icon(
-                    Icons.person,
-                    color: ConstsConfig.secondarycolor,
-                    size: 20,
-                  ),
+                  const Icon(Icons.person, size: 20),
+                  const SizedBox(width: 4),
                   Text("${'download_count'.tr} -"),
                   const SizedBox(width: 4),
                   Text('${book.downloads}'),

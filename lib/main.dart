@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:feedback/feedback.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -36,34 +37,34 @@ void main() async {
     anonKey:
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFudGN1b211c3hua29tdm55dWpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDEyNTg5NDgsImV4cCI6MjA1NjgzNDk0OH0.0eNMqBKxinzyiqFZ8aCnGP8L18TAi2V6-aMIPVPvNBc',
   );
-  var storage = GetStorage();
-  storage.remove('fav_books');
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]).then((_) {
     String? savedLanguage = GetStorage().read('language') ?? 'MYN';
     runApp(
-      GetMaterialApp(
-        translations: MyTranslations(),
-        // Set the locale dynamically based on the saved language
-        locale:
-            savedLanguage == 'ENG'
-                ? const Locale('en', 'US')
-                : const Locale('my', 'MM'),
-        fallbackLocale: const Locale(
-          'en',
-          'US',
-        ), // Set a fallback language (e.g., English)
-        title: ConstsConfig.appname,
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData.light(),
-        darkTheme: ThemeData.dark(),
-        themeMode: ThemeMode.light,
-        //initialRoute: isFirstTime ? AppPages.ON_BOARDING : AppPages.MY_HOME,
-        initialRoute: AppPages.INITIAL,
-        initialBinding: SplashBinding(),
-        getPages: AppPages.routes,
+      BetterFeedback(
+        child: GetMaterialApp(
+          translations: MyTranslations(),
+          // Set the locale dynamically based on the saved language
+          locale:
+              savedLanguage == 'ENG'
+                  ? const Locale('en', 'US')
+                  : const Locale('my', 'MM'),
+          fallbackLocale: const Locale(
+            'en',
+            'US',
+          ), // Set a fallback language (e.g., English)
+          title: ConstsConfig.appname,
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData.light(),
+          darkTheme: ThemeData.dark(),
+          themeMode: ThemeMode.light,
+          //initialRoute: isFirstTime ? AppPages.ON_BOARDING : AppPages.MY_HOME,
+          initialRoute: AppPages.INITIAL,
+          initialBinding: SplashBinding(),
+          getPages: AppPages.routes,
+        ),
       ),
     );
   });

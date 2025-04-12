@@ -19,12 +19,18 @@ class SplashView extends GetView<SplashController> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(
-                    ConstsConfig
-                        .splashLogo, // Replace with the path to your logo image
-                    width: 150,
-                    height: 150,
+                  ClipOval(
+                    child: Image.asset(
+                      ConstsConfig
+                          .splashLogo, // Replace with the path to your logo image
+                      width: 150,
+                      height: 150,
+                      fit:
+                          BoxFit
+                              .cover, // Ensures the image fits within the circle
+                    ),
                   ),
+
                   const SizedBox(height: 30),
                   const Text(
                     ConstsConfig.appname, // Replace with your app name
@@ -35,7 +41,7 @@ class SplashView extends GetView<SplashController> {
                     ),
                   ),
                   const SizedBox(height: 100),
-                  const CircularProgressIndicator(),
+                  const CircularProgressIndicator(color: Colors.black),
                   const SizedBox(height: 50),
                 ],
               ),
@@ -63,7 +69,7 @@ class SplashView extends GetView<SplashController> {
               left: 0,
               child: Center(
                 child: Text(
-                  '© 2024 App.com.mm. All rights reserved.', // Updated copyright text, // Replace with your desired footer text
+                  '© 2025 Tech4mm. All rights reserved.', // Updated copyright text, // Replace with your desired footer text
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.normal,

@@ -10,7 +10,14 @@ class FavouritesView extends GetView<FavouritesController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Faourite Books")),
+      appBar: AppBar(
+        title: Text(
+          "favorites".tr,
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+        ),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+      ),
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Obx(

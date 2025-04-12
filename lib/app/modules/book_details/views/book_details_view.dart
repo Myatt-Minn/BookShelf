@@ -126,7 +126,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
                                 ),
                                 const SizedBox(width: 4),
                                 Text(
-                                  '${book.page} pages',
+                                  '${book.page} ${'pages'.tr}',
                                   style: const TextStyle(color: Colors.white70),
                                 ),
                               ],
@@ -171,7 +171,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
                       style: TextButton.styleFrom(
                         foregroundColor: Colors.blue.shade800,
                       ),
-                      child: const Text('More books >'),
+                      child: Text('${'more_books'.tr} >'),
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -187,8 +187,8 @@ class BookDetailsView extends GetView<BookDetailsController> {
                             size: 20,
                             color: Colors.white,
                           ),
-                          label: const Text(
-                            "Download & Read Now",
+                          label: Text(
+                            "download_and_read_now".tr,
                             style: TextStyle(color: Colors.white),
                           ),
                           style: ElevatedButton.styleFrom(
@@ -211,8 +211,11 @@ class BookDetailsView extends GetView<BookDetailsController> {
                           onPressed: () {
                             controller.saveToFav();
                           },
-                          icon: const Icon(Icons.favorite_border, size: 20),
-                          label: const Text("Add to Favourite"),
+                          icon: Padding(
+                            padding: const EdgeInsets.only(left: 8),
+                            child: const Icon(Icons.favorite_border, size: 20),
+                          ),
+                          label: Text("add_to_favourites".tr),
                           style: OutlinedButton.styleFrom(
                             foregroundColor: Colors.blue.shade700,
                             side: BorderSide(color: Colors.blue.shade700),
@@ -231,7 +234,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
                             controller.shareBook(book);
                           },
                           icon: const Icon(Icons.share, size: 20),
-                          label: const Text("Share Book"),
+                          label: Text("share_book".tr),
                           style: OutlinedButton.styleFrom(
                             foregroundColor: Colors.blue.shade700,
                             side: BorderSide(color: Colors.blue.shade700),
@@ -252,7 +255,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Text(
-                "Recommended Books",
+                "recommended_books".tr,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,

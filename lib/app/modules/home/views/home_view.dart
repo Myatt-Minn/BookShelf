@@ -29,9 +29,11 @@ class HomeView extends GetView<HomeController> {
                   children: [
                     Row(
                       children: [
-                        Image.asset(
-                          ConstsConfig.logo, // Add your app logo here
-                          height: 50,
+                        ClipOval(
+                          child: Image.asset(
+                            ConstsConfig.logo, // Add your app logo here
+                            height: 50,
+                          ),
                         ),
                         const SizedBox(width: 10),
                         Column(
@@ -207,7 +209,7 @@ class HomeView extends GetView<HomeController> {
                 return controller.isLoading.value
                     ? const Center(child: CircularProgressIndicator())
                     : SizedBox(
-                      height: 220, // Height for the horizontal list
+                      height: 240, // Height for the horizontal list
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount:
@@ -238,7 +240,7 @@ class HomeView extends GetView<HomeController> {
                               .bookList
                               .length, // Replace with actual data length
                       itemBuilder: (context, index) {
-                        return buildbookListItem(controller.bookList[index]);
+                        return buildBookListItem(controller.bookList[index]);
                       },
                     );
               }),
@@ -282,7 +284,7 @@ class HomeView extends GetView<HomeController> {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Container(
-          width: 180,
+          width: 150,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(12),
@@ -308,7 +310,7 @@ class HomeView extends GetView<HomeController> {
                       book.coverUrl.isNotEmpty
                           ? book.coverUrl
                           : 'https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg',
-                  height: 130,
+                  height: 150,
                   width: double.infinity,
                   boxFit: BoxFit.fill,
                 ),
@@ -353,7 +355,7 @@ class HomeView extends GetView<HomeController> {
   }
 
   // Build vertical book item for "New Arrivals"
-  Widget buildbookListItem(BookModel book) {
+  Widget buildBookListItem(BookModel book) {
     return InkWell(
       onTap: () {
         Get.toNamed('/book-details', arguments: book);
@@ -363,7 +365,7 @@ class HomeView extends GetView<HomeController> {
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(8),
             boxShadow: const [
               BoxShadow(
                 color: Colors.black12,
@@ -374,21 +376,24 @@ class HomeView extends GetView<HomeController> {
           ),
           child: Row(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8), // Apply rounded corners
                 child: FancyShimmerImage(
                   imageUrl:
                       book.coverUrl.isNotEmpty
                           ? book.coverUrl
                           : 'https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg',
                   height: 100,
-                  width: 100,
-                  boxFit: BoxFit.contain,
+                  width: 80,
+                  boxFit: BoxFit.fill,
                 ),
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 8.0,
+                    horizontal: 12,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -407,7 +412,7 @@ class HomeView extends GetView<HomeController> {
                       const SizedBox(height: 4),
                       Row(
                         children: [
-                          Icon(Icons.star, color: Colors.yellow),
+                          const Icon(Icons.star, color: Colors.yellow),
                           Text(
                             book.rating.toString(),
                             style: const TextStyle(color: Colors.blue),
@@ -426,9 +431,7 @@ class HomeView extends GetView<HomeController> {
                   },
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.all(16.0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
+                    shape: const CircleBorder(),
                     backgroundColor: ConstsConfig.primarycolor,
                   ),
                   child: const Icon(

@@ -12,7 +12,7 @@ class CategoriesView extends GetView<CategoriesController> {
         leading: const Icon(Icons.category),
         title: Text(
           'categories'.tr,
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,

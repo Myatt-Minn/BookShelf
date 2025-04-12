@@ -9,7 +9,11 @@ class MoreView extends GetView<MoreController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("More"),
+        leading: Icon(Icons.settings_accessibility),
+        title: Text(
+          "more".tr,
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+        ),
         centerTitle: true,
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
@@ -24,12 +28,12 @@ class MoreView extends GetView<MoreController> {
                 children: [
                   _buildMoreOption(
                     icon: Icons.favorite,
-                    title: "Favourite Books",
+                    title: 'favorites'.tr,
                     onTap: () => Get.toNamed('/favourites'),
                   ),
                   _buildMoreOption(
                     icon: Icons.star_rate_rounded,
-                    title: "Give Rating on Play Store",
+                    title: 'give_rating_play_store'.tr,
                     onTap:
                         () => controller.openUrl(
                           "https://play.google.com/store/apps/details?id=YOUR_APP_ID",
@@ -37,12 +41,12 @@ class MoreView extends GetView<MoreController> {
                   ),
                   _buildMoreOption(
                     icon: Icons.share_rounded,
-                    title: "Share App",
+                    title: "share_app".tr,
                     onTap: () {},
                   ),
                   _buildMoreOption(
                     icon: Icons.apps_rounded,
-                    title: "Other Apps",
+                    title: "other_app".tr,
                     onTap:
                         () => controller.openUrl(
                           "https://play.google.com/store/apps/developer?id=YOUR_COMPANY_ID",
@@ -50,20 +54,18 @@ class MoreView extends GetView<MoreController> {
                   ),
                   _buildMoreOption(
                     icon: Icons.feedback_rounded,
-                    title: "Give Suggestions",
-                    onTap:
-                        () => controller.openUrl(
-                          "mailto:support@yourcompany.com",
-                        ),
+                    title: "give_suggestions".tr,
+                    onTap: () {
+                      // controller.uploadFeedbackToSupabase(feedback);
+                    },
                   ),
                   _buildMoreOption(
                     icon: Icons.info_rounded,
-                    title: "Credits",
+                    title: "credits".tr,
                     onTap:
                         () => Get.defaultDialog(
                           title: "Credits",
-                          middleText:
-                              "Developed by Your Company\nUI/UX by Your Name",
+                          middleText: "Developed by Tech4mm",
                         ),
                   ),
                 ],

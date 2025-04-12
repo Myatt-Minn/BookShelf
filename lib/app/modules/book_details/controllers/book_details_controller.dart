@@ -137,7 +137,7 @@ class BookDetailsController extends GetxController {
         "Download Complete",
         backgroundColor: Colors.green,
       );
-      File file = File(book.pdfUrl);
+      File file = File(filePath);
       if (file.existsSync()) {
         Get.to(() => PdfViewPage(), arguments: book);
       } else {

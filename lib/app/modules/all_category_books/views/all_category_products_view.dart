@@ -39,7 +39,7 @@ class AllCategoryBooksView extends GetView<AllCategoryBooksController> {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
-                          childAspectRatio: 0.8,
+                          childAspectRatio: 0.77,
                           crossAxisSpacing: 8,
                           mainAxisSpacing: 8,
                         ),

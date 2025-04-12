@@ -14,7 +14,15 @@ class DownloadsView extends GetView<DownloadsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Downloaded Books")),
+      appBar: AppBar(
+        leading: Icon(Icons.download),
+        title: Text(
+          "downloaded_books".tr,
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+        ),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+      ),
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Obx(
